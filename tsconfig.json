@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": "https://petstore.swagger.io/v2/swagger.json",
+    "target": "es5",
+    "lib": ["es5", "dom"],
+    "types": ["cypress", "node"]
+  },
+  "include": ["**/*.ts"]
+}
