@@ -2,7 +2,7 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "../out-tsc/e2e",
-    "baseUrl": "https://testsheepnz.github.io/BasicCalculator.html#main-body",
+    "baseUrl": "https://petstore.swagger.io/v2/swagger.json",
     "module": "commonjs",
     "target": "es5",
     "types": ["jasmine", "jasminewd2", "node"]
