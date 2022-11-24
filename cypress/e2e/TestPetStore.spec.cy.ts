@@ -12,28 +12,6 @@ describe("pet store swagger api", () => {
       expect(response.status).equal(200);
     });
   });
-  //how to add photo?
-  it("post - add pet photo", () => {
-    cy.request({
-      method: "POST",
-      url: "https://petstore.swagger.io/v2/pet/111/uploadImage",
-      headers: {
-        Authorisation: "special-key",
-      },
-      body: {
-        petID: "111",
-        additionalMetadata: "dogie",
-        file: "doggie.jpg",
-        content: "pic",
-        "image/png": "jpg",
-        schema: "",
-        type: "string",
-        format: "binary",
-      },
-    }).then((response) => {
-      expect(response.status).equal(200);
-    });
-  });
 
   it("post - add new pet to the store", () => {
     cy.request({
@@ -57,6 +35,29 @@ describe("pet store swagger api", () => {
           },
         ],
         status: "available",
+      },
+    }).then((response) => {
+      expect(response.status).equal(200);
+    });
+  });
+
+  it("post - add pet photo", () => {
+    cy.request({
+      method: "POST",
+      url: "https://petstore.swagger.io/v2/pet/111/uploadImage",
+      headers: {
+        Authorisation: "special-key",
+        //Content-Type: "application/json"
+      },
+      body: {
+        petID: "111",
+        additionalMetadata: "doggie is so cute",
+        file: "C:UsersjpbouDesktopdoggie.png",
+        content: "pic",
+        "image/png": "png",
+        schema: "",
+        type: "string",
+        format: "binary",
       },
     }).then((response) => {
       expect(response.status).equal(200);

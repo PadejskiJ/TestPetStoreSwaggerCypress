@@ -1,0 +1,248 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 8,
+    "passes": 6,
+    "pending": 0,
+    "failures": 2,
+    "start": "2022-11-24T10:20:30.801Z",
+    "end": "2022-11-24T10:20:34.628Z",
+    "duration": 3827,
+    "testsRegistered": 8,
+    "passPercent": 75,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "dcf501fd-2471-4fbf-bae0-55a92cd3ec04",
+      "title": "",
+      "fullFile": "cypress\\e2e\\TestPetStore.spec.cy.ts",
+      "file": "cypress\\e2e\\TestPetStore.spec.cy.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4581686f-08c6-417e-9ba5-124dd724c046",
+          "title": "pet store swagger api",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "get inventory",
+              "fullTitle": "pet store swagger api get inventory",
+              "timedOut": null,
+              "duration": 825,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n    method: \"GET\",\n    url: \"https://petstore.swagger.io/v2/store/inventory\",\n    headers: {\n        Authorisation: \"special-key\",\n    },\n}).then(function (response) {\n    expect(response.status).equal(200);\n});",
+              "err": {},
+              "uuid": "ede01ae1-e88f-435f-873a-9856dbb9b24d",
+              "parentUUID": "4581686f-08c6-417e-9ba5-124dd724c046",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "post - add new pet to the store",
+              "fullTitle": "pet store swagger api post - add new pet to the store",
+              "timedOut": null,
+              "duration": 164,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n    method: \"POST\",\n    url: \"https://petstore.swagger.io/v2/pet\",\n    headers: {\n        Authorisation: \"special-key\",\n    },\n    body: {\n        id: 111,\n        category: {\n            id: 101,\n            name: \"dog\",\n        },\n        name: \"leksi\",\n        photoUrls: [\"string\"],\n        tags: [\n            {\n                id: 1,\n                name: \"dog\",\n            },\n        ],\n        status: \"available\",\n    },\n}).then(function (response) {\n    expect(response.status).equal(200);\n});",
+              "err": {},
+              "uuid": "22ff0155-d2e9-40ee-b0b4-c34656b6143b",
+              "parentUUID": "4581686f-08c6-417e-9ba5-124dd724c046",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "post - add pet photo",
+              "fullTitle": "pet store swagger api post - add pet photo",
+              "timedOut": null,
+              "duration": 574,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n    method: \"POST\",\n    url: \"https://petstore.swagger.io/v2/pet/111/uploadImage\",\n    headers: {\n        Authorisation: \"special-key\",\n        //Content-Type: \"application/json\"\n    },\n    body: {\n        petID: \"111\",\n        additionalMetadata: \"doggie is so cute\",\n        file: \"C:UsersjpbouDesktopdoggie.jpg\",\n        content: \"pic\",\n        \"image/png\": \"jpg\",\n        schema: \"\",\n        type: \"string\",\n        format: \"binary\",\n    },\n}).then(function (response) {\n    expect(response.status).equal(200);\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttps://petstore.swagger.io/v2/pet/111/uploadImage\n\nThe response we received from your web server was:\n\n  > 415: Unsupported Media Type\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://petstore.swagger.io/v2/pet/111/uploadImage\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"Authorisation\": \"special-key\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/11.1.0 Chrome/106.0.5249.51 Electron/21.0.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 175\n}\nBody: {\"petID\":\"111\",\"additionalMetadata\":\"doggie is so cute\",\"file\":\"C:UsersjpbouDesktopdoggie.jpg\",\"content\":\"pic\",\"image/png\":\"jpg\",\"schema\":\"\",\"type\":\"string\",\"format\":\"binary\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 415 - Unsupported Media Type\nHeaders: {\n  \"date\": \"Thu, 24 Nov 2022 10:20:30 GMT\",\n  \"content-type\": \"application/xml\",\n  \"content-length\": \"102\",\n  \"connection\": \"keep-alive\",\n  \"access-control-allow-origin\": \"*\",\n  \"access-control-allow-methods\": \"GET, POST, DELETE, PUT\",\n  \"access-control-allow-headers\": \"Content-Type, api_key, Authorization\",\n  \"server\": \"Jetty(9.2.9.v20150224)\"\n}\nBody: <?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><apiResponse><type>unknown</type></apiResponse>\n\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttps://petstore.swagger.io/v2/pet/111/uploadImage\n\nThe response we received from your web server was:\n\n  > 415: Unsupported Media Type\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://petstore.swagger.io/v2/pet/111/uploadImage\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"Authorisation\": \"special-key\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/11.1.0 Chrome/106.0.5249.51 Electron/21.0.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 175\n}\nBody: {\"petID\":\"111\",\"additionalMetadata\":\"doggie is so cute\",\"file\":\"C:UsersjpbouDesktopdoggie.jpg\",\"content\":\"pic\",\"image/png\":\"jpg\",\"schema\":\"\",\"type\":\"string\",\"format\":\"binary\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 415 - Unsupported Media Type\nHeaders: {\n  \"date\": \"Thu, 24 Nov 2022 10:20:30 GMT\",\n  \"content-type\": \"application/xml\",\n  \"content-length\": \"102\",\n  \"connection\": \"keep-alive\",\n  \"access-control-allow-origin\": \"*\",\n  \"access-control-allow-methods\": \"GET, POST, DELETE, PUT\",\n  \"access-control-allow-headers\": \"Content-Type, api_key, Authorization\",\n  \"server\": \"Jetty(9.2.9.v20150224)\"\n}\nBody: <?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><apiResponse><type>unknown</type></apiResponse>\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:54920/__cypress/runner/cypress_runner.js:144236:80)\n    at tryCatcher (http://localhost:54920/__cypress/runner/cypress_runner.js:11327:23)\n    at Promise._settlePromiseFromHandler (http://localhost:54920/__cypress/runner/cypress_runner.js:9262:31)\n    at Promise._settlePromise (http://localhost:54920/__cypress/runner/cypress_runner.js:9319:18)\n    at Promise._settlePromise0 (http://localhost:54920/__cypress/runner/cypress_runner.js:9364:10)\n    at Promise._settlePromises (http://localhost:54920/__cypress/runner/cypress_runner.js:9444:18)\n    at _drainQueueStep (http://localhost:54920/__cypress/runner/cypress_runner.js:6034:12)\n    at _drainQueue (http://localhost:54920/__cypress/runner/cypress_runner.js:6027:9)\n    at ../../node_modules/bluebird/js/release/async.js.Async._drainQueues (http://localhost:54920/__cypress/runner/cypress_runner.js:6043:5)\n    at Async.drainQueues (http://localhost:54920/__cypress/runner/cypress_runner.js:5913:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/TestPetStore.spec.cy.ts:45:7)",
+                "diff": null
+              },
+              "uuid": "416bd952-6bd4-48c1-b58f-457d920ac540",
+              "parentUUID": "4581686f-08c6-417e-9ba5-124dd724c046",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "put - update an existing pet in the store",
+              "fullTitle": "pet store swagger api put - update an existing pet in the store",
+              "timedOut": null,
+              "duration": 155,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n    method: \"PUT\",\n    url: \"https://petstore.swagger.io/v2/pet\",\n    headers: {\n        Authorisation: \"special-key\",\n    },\n    body: {\n        id: 111,\n        category: {\n            id: 101,\n            name: \"doggie\",\n        },\n        name: \"Leksi\",\n        photoUrls: [\"string\"],\n        tags: [\n            {\n                id: 1,\n                name: \"dog\",\n            },\n        ],\n        status: \"available\",\n    },\n}).then(function (response) {\n    expect(response.status).equal(200);\n});",
+              "err": {},
+              "uuid": "7a11318a-1e14-4d3e-b783-02c04f6ab34b",
+              "parentUUID": "4581686f-08c6-417e-9ba5-124dd724c046",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "get - finds pets by status",
+              "fullTitle": "pet store swagger api get - finds pets by status",
+              "timedOut": null,
+              "duration": 795,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n    method: \"GET\",\n    url: \"http://petstore.swagger.io/v2/pet/findByStatus?status=pending\",\n    headers: {\n        Authorisation: \"special-key\",\n    },\n}).then(function (response) {\n    expect(response.status).equal(200);\n});",
+              "err": {},
+              "uuid": "4b952838-1352-4fbe-9467-5f107ffea708",
+              "parentUUID": "4581686f-08c6-417e-9ba5-124dd724c046",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "get - finds pet by id",
+              "fullTitle": "pet store swagger api get - finds pet by id",
+              "timedOut": null,
+              "duration": 532,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n    method: \"GET\",\n    url: \"http://petstore.swagger.io/v2/pet/111\",\n    headers: {\n        Authorisation: \"special-key\",\n    },\n}).then(function (response) {\n    expect(response.status).equal(200);\n});",
+              "err": {},
+              "uuid": "7abfde04-3d33-4ef8-b5de-eca0aabfffea",
+              "parentUUID": "4581686f-08c6-417e-9ba5-124dd724c046",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "post - updates a pet in the store with form data",
+              "fullTitle": "pet store swagger api post - updates a pet in the store with form data",
+              "timedOut": null,
+              "duration": 415,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n    method: \"POST\",\n    url: \"https://petstore.swagger.io/v2/pet/111\",\n    headers: {\n        Authorisation: \"special-key\",\n    },\n    body: {\n        id: 111,\n        category: {\n            id: 101,\n            name: \"dog\",\n        },\n        name: \"leksi\",\n        tags: [\n            {\n                id: 1,\n                name: \"dog\",\n            },\n        ],\n        status: \"sold\",\n    },\n}).then(function (response) {\n    expect(response.status).equal(405);\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttps://petstore.swagger.io/v2/pet/111\n\nThe response we received from your web server was:\n\n  > 415: Unsupported Media Type\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://petstore.swagger.io/v2/pet/111\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"Authorisation\": \"special-key\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/11.1.0 Chrome/106.0.5249.51 Electron/21.0.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 107\n}\nBody: {\"id\":111,\"category\":{\"id\":101,\"name\":\"dog\"},\"name\":\"leksi\",\"tags\":[{\"id\":1,\"name\":\"dog\"}],\"status\":\"sold\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 415 - Unsupported Media Type\nHeaders: {\n  \"date\": \"Thu, 24 Nov 2022 10:20:32 GMT\",\n  \"content-type\": \"application/xml\",\n  \"content-length\": \"102\",\n  \"connection\": \"keep-alive\",\n  \"access-control-allow-origin\": \"*\",\n  \"access-control-allow-methods\": \"GET, POST, DELETE, PUT\",\n  \"access-control-allow-headers\": \"Content-Type, api_key, Authorization\",\n  \"server\": \"Jetty(9.2.9.v20150224)\"\n}\nBody: <?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><apiResponse><type>unknown</type></apiResponse>\n\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttps://petstore.swagger.io/v2/pet/111\n\nThe response we received from your web server was:\n\n  > 415: Unsupported Media Type\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://petstore.swagger.io/v2/pet/111\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"Authorisation\": \"special-key\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/11.1.0 Chrome/106.0.5249.51 Electron/21.0.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 107\n}\nBody: {\"id\":111,\"category\":{\"id\":101,\"name\":\"dog\"},\"name\":\"leksi\",\"tags\":[{\"id\":1,\"name\":\"dog\"}],\"status\":\"sold\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 415 - Unsupported Media Type\nHeaders: {\n  \"date\": \"Thu, 24 Nov 2022 10:20:32 GMT\",\n  \"content-type\": \"application/xml\",\n  \"content-length\": \"102\",\n  \"connection\": \"keep-alive\",\n  \"access-control-allow-origin\": \"*\",\n  \"access-control-allow-methods\": \"GET, POST, DELETE, PUT\",\n  \"access-control-allow-headers\": \"Content-Type, api_key, Authorization\",\n  \"server\": \"Jetty(9.2.9.v20150224)\"\n}\nBody: <?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><apiResponse><type>unknown</type></apiResponse>\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:54920/__cypress/runner/cypress_runner.js:144236:80)\n    at tryCatcher (http://localhost:54920/__cypress/runner/cypress_runner.js:11327:23)\n    at Promise._settlePromiseFromHandler (http://localhost:54920/__cypress/runner/cypress_runner.js:9262:31)\n    at Promise._settlePromise (http://localhost:54920/__cypress/runner/cypress_runner.js:9319:18)\n    at Promise._settlePromise0 (http://localhost:54920/__cypress/runner/cypress_runner.js:9364:10)\n    at Promise._settlePromises (http://localhost:54920/__cypress/runner/cypress_runner.js:9444:18)\n    at _drainQueueStep (http://localhost:54920/__cypress/runner/cypress_runner.js:6034:12)\n    at _drainQueue (http://localhost:54920/__cypress/runner/cypress_runner.js:6027:9)\n    at ../../node_modules/bluebird/js/release/async.js.Async._drainQueues (http://localhost:54920/__cypress/runner/cypress_runner.js:6043:5)\n    at Async.drainQueues (http://localhost:54920/__cypress/runner/cypress_runner.js:5913:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/TestPetStore.spec.cy.ts:120:7)",
+                "diff": null
+              },
+              "uuid": "c21ba90c-98eb-4e56-9d65-1c64ca1924a2",
+              "parentUUID": "4581686f-08c6-417e-9ba5-124dd724c046",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "delete - deletes a pet from the store",
+              "fullTitle": "pet store swagger api delete - deletes a pet from the store",
+              "timedOut": null,
+              "duration": 179,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n    method: \"DELETE\",\n    url: \"https://petstore.swagger.io/v2/pet/111\",\n    headers: {\n        Authorisation: \"special-key\",\n    },\n    body: {\n        id: 111,\n        category: {\n            id: 101,\n            name: \"dog\",\n        },\n        name: \"leksi\",\n        photoUrls: [\"string\"],\n        tags: [\n            {\n                id: 1,\n                name: \"dog\",\n            },\n        ],\n        status: \"sold\",\n    },\n}).then(function (response) {\n    expect(response.status).equal(200);\n});",
+              "err": {},
+              "uuid": "5e68101d-2973-46b5-a872-4b835252ad43",
+              "parentUUID": "4581686f-08c6-417e-9ba5-124dd724c046",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ede01ae1-e88f-435f-873a-9856dbb9b24d",
+            "22ff0155-d2e9-40ee-b0b4-c34656b6143b",
+            "7a11318a-1e14-4d3e-b783-02c04f6ab34b",
+            "4b952838-1352-4fbe-9467-5f107ffea708",
+            "7abfde04-3d33-4ef8-b5de-eca0aabfffea",
+            "5e68101d-2973-46b5-a872-4b835252ad43"
+          ],
+          "failures": [
+            "416bd952-6bd4-48c1-b58f-457d920ac540",
+            "c21ba90c-98eb-4e56-9d65-1c64ca1924a2"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 3639,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

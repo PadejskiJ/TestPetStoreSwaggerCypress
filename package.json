@@ -3,7 +3,17 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "ng": "ng",
+    "build": "ng build --prod --base-href ./ && cp CNAME dist CNAME",
+    "start": "ng serve",
+    "lint": "ng lint --force",
+    "delete:reports": "rm -r cypress/results/* || true",
+    "e2e": "ng e2e",
+    "prereport": "npm run delete:reports",
+    "test": "ng test",
+    "mochawesome:merge": "npx mochawesome-merge \"cypress/results/mochawesome/*.json\" > mochawesome.json && npx marge mochawesome.json",
+    "cypress run": "npx cypress run",
+    "cypress:e2e": "start-test start http-get://localhost:4200 cypress:run "
   },
   "author": "jelena",
   "license": "ISC",
@@ -14,8 +24,24 @@
     "cypress": "^11.1.0",
     "cypress-mochawesome-reporter": "^3.2.3",
     "cypress-plugin-api": "^2.5.1",
+    "mocha": "^10.1.0",
     "typescript": "^4.9.3"
   },
-  "devDependencies": {},
-  "description": ""
+  "devDependencies": {
+    "cypress-multi-reporters": "^1.6.1",
+    "junit-merge": "^2.0.0",
+    "mocha-junit-reporter": "^2.2.0",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.2.1",
+    "mochawesome-report-generator": "^6.2.0"
+  },
+  "description": "\"# TestPetStoreSwaggerCypress\"",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PadejskiJ/TestPetStoreSwaggerCypress.git"
+  },
+  "bugs": {
+    "url": "https://github.com/PadejskiJ/TestPetStoreSwaggerCypress/issues"
+  },
+  "homepage": "https://github.com/PadejskiJ/TestPetStoreSwaggerCypress#readme"
 }
