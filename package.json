@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "cy:open": "npx cypress open",
+    "cy:test": "cypress run --browser chrome",
     "ng": "ng",
     "build": "ng build --prod --base-href ./ && cp CNAME dist CNAME",
     "start": "ng serve",
@@ -10,14 +12,19 @@
     "delete:reports": "rm -r cypress/results/* || true",
     "e2e": "ng e2e",
     "prereport": "npm run delete:reports",
-    "test": "ng test",
+    "test": "npx cypress run",
     "mochawesome:merge": "npx mochawesome-merge \"cypress/results/mochawesome/*.json\" > mochawesome.json && npx marge mochawesome.json",
-    "cypress run": "npx cypress run",
-    "cypress:e2e": "start-test start http-get://localhost:4200 cypress:run "
+    "junit:merge": "npx junit-merge -d cypress/results/junit -o cypress/results/junit/result.xml",
+    "cypress run": "npm run prereport && npx cypress run",
+    "cypress:e2e": "start-test start http-get://localhost:4200 cypress:run; npm junit:merge; npm mochawesome:merge"
   },
+  "pre-commit": [
+    "npm run lint"
+  ],
   "author": "jelena",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.12.0",
     "@types/mocha": "^10.0.0",
     "babel": "^6.23.0",
     "babel-loader": "^9.1.0",
@@ -25,7 +32,8 @@
     "cypress-mochawesome-reporter": "^3.2.3",
     "cypress-plugin-api": "^2.5.1",
     "mocha": "^10.1.0",
-    "typescript": "^4.9.3"
+    "typescript": "^4.9.3",
+    "webpack": "^5.75.0"
   },
   "devDependencies": {
     "cypress-multi-reporters": "^1.6.1",

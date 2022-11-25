@@ -5,9 +5,5 @@
     "lib": ["es5", "dom"],
     "types": ["cypress", "node", "cypress-plugin-api"]
   },
-  "include": ["**/*.ts"],
-  "reporter": "cypress-multi-reporters",
-  "reporterOptions": {
-    "configFile": "reporter-config.json"
-  }
+  "include": ["**/*.ts"]
 }
