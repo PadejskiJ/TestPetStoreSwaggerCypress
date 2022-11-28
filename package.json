@@ -25,17 +25,18 @@
   "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.12.0",
-    "@types/mocha": "^10.0.0",
     "babel": "^6.23.0",
     "babel-loader": "^9.1.0",
-    "cypress": "^11.1.0",
+    "cypress": "^11.2.0",
     "cypress-mochawesome-reporter": "^3.2.3",
     "cypress-plugin-api": "^2.5.1",
     "mocha": "^10.1.0",
+    "node": "^19.1.0",
     "typescript": "^4.9.3",
     "webpack": "^5.75.0"
   },
   "devDependencies": {
+    "@types/mocha": "^10.0.0",
     "cypress-multi-reporters": "^1.6.1",
     "junit-merge": "^2.0.0",
     "mocha-junit-reporter": "^2.2.0",

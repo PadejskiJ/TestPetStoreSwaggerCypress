@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="6.945" tests="15" failures="2">
+  <testsuite name="Root Suite" timestamp="2022-11-28T12:22:27" tests="0" file="cypress\e2e\TestPetStore.spec.cy.ts" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="testing pet store api / pets" timestamp="2022-11-28T12:22:27" tests="8" time="4.416" failures="0">
+    <testcase name="testing pet store api / pets get inventory and check how many pets with status available are there" time="0.858" classname="get inventory and check how many pets with status available are there">
+    </testcase>
+    <testcase name="testing pet store api / pets post - add new pet to the store, and check if pet is created" time="0.310" classname="post - add new pet to the store, and check if pet is created">
+    </testcase>
+    <testcase name="testing pet store api / pets put - update an existing pet in the store, and check if pet status is updated" time="0.183" classname="put - update an existing pet in the store, and check if pet status is updated">
+    </testcase>
+    <testcase name="testing pet store api / pets get - find pets by status, and check their number" time="0.768" classname="get - find pets by status, and check their number">
+    </testcase>
+    <testcase name="testing pet store api / pets get - finds pet by id, and check if its the right pet by name " time="0.553" classname="get - finds pet by id, and check if its the right pet by name ">
+    </testcase>
+    <testcase name="testing pet store api / pets delete - deletes a pet from the store, and check if the pet is deleted" time="0.751" classname="delete - deletes a pet from the store, and check if the pet is deleted">
+    </testcase>
+    <testcase name="testing pet store api / pets test - check inventory before and after pet is added" time="0.470" classname="test - check inventory before and after pet is added">
+    </testcase>
+    <testcase name="testing pet store api / pets test - check pet status before and after pet is sold" time="0.430" classname="test - check pet status before and after pet is sold">
+    </testcase>
+  </testsuite>
+  <testsuite name="testing pet store api / users" timestamp="2022-11-28T12:22:31" tests="4" time="1.838" failures="2">
+    <testcase name="testing pet store api / users test - create user in the store, and verify user is created by finding user by username" time="0.305" classname="test - create user in the store, and verify user is created by finding user by username">
+    </testcase>
+    <testcase name="testing pet store api / users test - check if user can login with valid credentials" time="0.140" classname="test - check if user can login with valid credentials">
+    </testcase>
+    <testcase name="testing pet store api / users test - check if user can login with invalid credentials" time="0.000" classname="test - check if user can login with invalid credentials">
+      <failure message="expected 200 to equal 400" type="AssertionError"><![CDATA[AssertionError: expected 200 to equal 400
+    at Context.eval (webpack:///./cypress/e2e/TestPetStore.spec.cy.ts:308:30)
+
+      + expected - actual
+
+      -200
+      +400
+      ]]></failure>
+    </testcase>
+    <testcase name="testing pet store api / users test - check if user can login with empty credentials" time="0.000" classname="test - check if user can login with empty credentials">
+      <failure message="expected 200 to equal 400" type="AssertionError"><![CDATA[AssertionError: expected 200 to equal 400
+    at Context.eval (webpack:///./cypress/e2e/TestPetStore.spec.cy.ts:321:30)
+
+      + expected - actual
+
+      -200
+      +400
+      ]]></failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="testing pet store api / store" timestamp="2022-11-28T12:22:33" tests="3" time="0.651" failures="0">
+    <testcase name="testing pet store api / store test - check if user can place new order" time="0.166" classname="test - check if user can place new order">
+    </testcase>
+    <testcase name="testing pet store api / store test - check open order" time="0.187" classname="test - check open order">
+    </testcase>
+    <testcase name="testing pet store api / store test - check delete order" time="0.279" classname="test - check delete order">
+    </testcase>
+  </testsuite>
+</testsuites>
